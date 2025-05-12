@@ -5,6 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       pip install gdown
+    startCommand: |
       mkdir -p phi2_gguf
       gdown --id 1-3w_yzW2iSPQuj3nMv9h_ewgxd2X5s8n -O phi2_gguf/phi-2.Q4_K_M.gguf
-    startCommand: python app.py
+      gunicorn app:app
